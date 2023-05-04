@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 $message = '';
-if (isset ($_POST['name'])  && isset($_POST['email']) ) {
+if (isset($_POST['name'])  && isset($_POST['email'])) {
   $name = $_POST['name'];
   $email = $_POST['email'];
   $sql = 'INSERT INTO people(name, email) VALUES(:name, :email)';
@@ -9,13 +9,10 @@ if (isset ($_POST['name'])  && isset($_POST['email']) ) {
   if ($statement->execute([':name' => $name, ':email' => $email])) {
     $message = 'data inserted successfully';
   }
-
-
-
 }
 
 
- ?>
+?>
 <?php require 'header.php'; ?>
 <div class="container">
   <div class="card mt-5">
@@ -23,7 +20,7 @@ if (isset ($_POST['name'])  && isset($_POST['email']) ) {
       <h2>Create a person</h2>
     </div>
     <div class="card-body">
-      <?php if(!empty($message)): ?>
+      <?php if (!empty($message)) : ?>
         <div class="alert alert-success">
           <?= $message; ?>
         </div>
